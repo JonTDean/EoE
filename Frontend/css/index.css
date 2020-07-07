@@ -91,20 +91,8 @@ div#mainDiv{
         padding: 1em;
     }
 
-    div#signupDiv{
-        grid-area: b;
-
-        border-radius: 1em;
-        background-color: #ebebeb;
-        -moz-box-shadow: 0 0 3px #ccc;
-        -webkit-box-shadow: 0 0 3px #ccc;
-        box-shadow: 0 0 3px #ccc;
-        
-        padding: 1em;
-    }
-
     /* Login / Signup Div */
-    div#login_signupDiv{
+    div#playContainer{
         /* border: .2em solid #f3f3f3; */
         border-radius: 1em;
         background-color: #ebebeb;
@@ -118,16 +106,13 @@ div#mainDiv{
     }
 
         /* Login Forms */
-        p.login_header{
+        p.playHeader{
             font-size: 1.5em;
             font-weight: bold;
         }
 
-        form#login_form{
-
-        }
             /* LOGIN BUTTON STYLING */
-            input#login_button{
+            button#playButton{
                 display: inline-block;
                 border: none;
                 border-radius: 5px;
@@ -146,81 +131,34 @@ div#mainDiv{
                 -moz-appearance: none;
             }
 
-            input#login_button:hover,
-            input#login_button:focus {
+            button#playButton:hover,
+            button#playButton:focus {
                 background: #AB2346;
             }
 
-            input#login_button:focus {
+            button#playButton:focus {
                 outline-offset: -4px;
             }
 
-            input#login_button:active {
+            button#playButton:active {
                 transform: scale(0.99);
             }
 
-        label.form_login_text{
-            font-weight: bold;
-        }
+/* Game Container Style */
+div#gameContainer{
+    background-color: #A2A3BB;
+    border: none;
+    border-radius: 1em;
+    padding: 1rem 1rem;
+    margin: 1em;
+    text-decoration: none;
 
-        input[type=text].login_text{
-            text-decoration: none;
+    text-align: center;
+}
 
-            padding: .3em;
-            height: 30px;
-            position: relative;
-            left: 0;
-            outline: none;
-
-            border: 1px solid #cdcdcd;
-            border-color: #ebebeb;
-            border-radius: 5px;
-
-            background-color: #ffffff;
-            font-size: 16px;
-        }
-
-        /* Login Button Div */
-        div#login_button_div{
-            color: white;
-            background-color: #191516;
-
-            border-radius: 1em;
-            padding: 1em 1em;
-        }
-
-        /* SIGN UP BUTTON */
-        button#signup_button{
-            display: inline-block;
-            border: none;
-            border-radius: 5px;
-            padding: 1rem 2rem;
-            margin: 0;
-            text-decoration: none;
-            background: #36622d;
-            color: #ffffff;
-            font-family: sans-serif;
-            font-size: 1rem;
-            cursor: pointer;
-            text-align: center;
-            transition: background 250ms ease-in-out, 
-                        transform 150ms ease;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-        }
-
-        button#signup_button:hover,
-        button#signup_button:focus {
-            background: #AB2346;
-        }
-
-        button#signup_button:focus {
-            outline-offset: -4px;
-        }
-
-        button#signup_button:active {
-            transform: scale(0.99);
-        }
+.hidden{
+    display: none;
+}
 
 /* Footer Styles */
 

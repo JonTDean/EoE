@@ -25,26 +25,36 @@ class playGame extends Phaser.Scene {
         this.bg_4.setScrollFactor(0);
 
         // Ground for the player to stand on
-        this.ground = this.add.tileSprite(0, 0, game.config.width, 48, "ground");
+        this.ground = this.physics.add.sprite(0, 0, game.config.width, game.config.height, "ground_full");
+        // this.physics.add.existing(this.ground); // Add the ground tiles as a physics object.
+        this.ground.setImmovable(true);
+        this.ground.setScale(2400, 48)
+        this.ground.width = 2400;
+        this.ground.height = 48;
         this.ground.setOrigin(0, 0);
         this.ground.setScrollFactor(0);
         // Position the tile at the bottom of the page
         this.ground.y = 24 * 14.7;
+        // this.physics.world.bounds.width = this.ground.width;
 
         // Player sprite
-        this.player = this.add.sprite(game.config.width * 1.5, game.config.height / 2, "playerIdle");
-        this.player.y = 24 * 13.45;
+        this.player = this.physics.add.sprite(game.config.width * 1.5, game.config.height / 2, "playerIdle");
+        this.player.setGravityY(100);
+        // this.player.setCollideWorldBounds(true)
+        // this.player.y = 24 * 13.45;
+
+        // Set a collider between the player and the ground
+        // this.physics.add.collider(this.player, this.ground, collideObjects, null, this);
+        this.physics.add.collider(this.player, this.ground);
+
+        function collideObjects(){
+            // this.ground.setGravityY(0);
+            this.player.setGravityY(0);
+        
+            console.log('hit');
+        }
+
         // Create an animation for the player
-
-        // this.anims.create({
-        //     key: "fly",
-        //     frames: this.anims.generateFrameNumbers("player"),
-        //     frameRate: 20,
-        //     repeat: -1
-        // });
-
-        // this.player.play("fly");
-
         // Idle Animation
         this.anims.create({
             key: "idle",

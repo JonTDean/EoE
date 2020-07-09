@@ -3,7 +3,7 @@ let game;
 // Loads up the game data
 window.onload = function(){
     let gameConfig = {
-        type: Phaser.CANVAS,
+        type: Phaser.WEBGL,
         width: 800,
         height: 400,
         pixelArt: true,
@@ -13,12 +13,22 @@ window.onload = function(){
                 debug: true,
                 gravity: {
                     y: 0
-                }
+                },
+                checkCollision: {
+                    up: true,
+                    down: true,
+                    left: true,
+                    right: true
+                },
+                fps: 60,
+                isPaused: false
             }
         },
         scene: [preloadGame, playGame],
         parent: document.querySelector('div#mainDiv')// Appends Container to Canvas
     }
+
+    
     
     game = new Phaser.Game(gameConfig);
 }

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> Welcome to EBE Alpha </title>
+    <title> EBE Alpha </title>
 
     <!-- No Favicon Fix -->
     <link rel="shortcut icon" href="">
@@ -11,9 +11,8 @@
     <link rel ="stylesheet" href="css/normalize.css" />
     <link rel ="stylesheet" href="css/index.css" />
     <!-- JS Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
     <script src="src/index.js" defer></script>
-    <script src="src/game.js" defer></script> <!-- type="module"  -->
+
   </head>
 
   <body>
@@ -22,7 +21,7 @@
       <!-- Options for NavBar Area -->
       <ul class="ulNav">
         <!-- Whatever page the user is on should be highlighted -->
-        <li class="liNav" id="projectName"><a href="index.html">Eat or be Eaten</a></li>
+        <li class="liNav" id="projectName"><a href="./index.html">Eat or be Eaten</a></li>
       </ul>  
     </nav>
 
@@ -40,37 +39,36 @@
         <ul>
           <li> Front Page Created 07/06/2020 </li>
           <li> SPA Created 07/06/2020 </li>
+          <li> Score Board Created 07/08/2020 </li>
+          <li> Parallax Logic Finished 07/08/2020 </li>
         </ul>
       </div>
 
       <!-- Play Container for Divs -->
       <div id="playContainer">
         <p class="playHeader">Interested in Playing?</p>
-        <button id="playButton">Play</a></button>
+        <a href="./game.html"><button id="playButton">Play</button></a>
       </div>
     </div>
 
     <!--  Game Container -->
-    <div id="gameContainer" class="hidden">
-      <!-- Canvas -->
-      <div id="canvasContainer">
-        <!-- <canvas id="canvasScreen"></canvas> -->
-      </div>
-
+    <div id="scoreContainer">
+      <h2> Score Board</h2>
       <!-- Score Board -->
       <div id="scoreBoard">
-        <div id="innerScoreBoard">  
-        </div>
+        <ol id="scoreList">
+
+        </ol>
       </div>
 
       <!-- Score Submitter -->
-      <form id="scoreForm" class="hidden">
+      <!-- <form id="scoreForm">
         <label class="labelText" for="score">Score:</label>
         <input class="inputText" id="score" type="text" name="score" placeholder="12345" />
         <label class="labelText" for="">Name:</label>
         <input class="inputText" id="name" type="text" name="name" placeholder="ABC" />
         <input id="scoreButton" type="submit" value="submit" />
-      </form>
+      </form> -->
     </div>
 
     <!-- Footer Area-->

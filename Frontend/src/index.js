@@ -29,7 +29,7 @@ scoreForm.addEventListener("submit", (e) => {
     })
     .then(resp => resp.json())
     .then(json => console.log(json))
-    .then(alert("To play again Click refresh, to go back to the Main Menu click the title!"))
+    .then(alert("Score Submitted!"))
     .catch(error => alert(error));
 
     location.href = "./index.html";
@@ -61,6 +61,7 @@ function createScore(score){
     let pDaS = document.createElement("p");
     let delContainer = document.createElement("div");
     let delButton = document.createElement("button");
+    let updButton = document.createElement("button");
 
     scoreMainContainer.id = `${score.id}`;
     scoreMainContainer.classList.add("scoreListing");
@@ -73,6 +74,8 @@ function createScore(score){
     delContainer.id = "deleteContainer";
     delButton.id = "deleteScoreButton";
     delButton.classList.add("button");
+    updButton.id = "updateNameButton";
+    updButton.classList.add("button");
 
     pLiN.innerText = "Name";
     pLiS.innerText = "Score";
@@ -80,14 +83,16 @@ function createScore(score){
     pDaS.innerText = `${score.userScore}`;
 
     delButton.innerText = "Delete";
-    
+    updButton.innerText = "Update";
+
     delContainer.appendChild(delButton);
+    delContainer.appendChild(updButton);
     scoreMainContainer.appendChild(pLiN);
     scoreMainContainer.appendChild(pDaN);
     scoreMainContainer.appendChild(pLiS);
     scoreMainContainer.appendChild(pDaS);
     scoreMainContainer.appendChild(delContainer); 
-    scoreLi.appendChild(scoreMainContainer)
+    scoreLi.appendChild(scoreMainContainer);
     scoreOl.appendChild(scoreLi);
 
     olCounter.push(`${score.id}`)
@@ -98,29 +103,49 @@ function createScore(score){
 
 // Event Delegation Props to Aleksa for the guide https://medium.com/swlh/the-art-of-javascript-event-delegation-d9e0e8a01d9d
 scoreOl.addEventListener("click", function(e){
-    // console.log(e);
+    console.log(e.target.id);
     // Delete Score
-    if(e.target.tagName === "BUTTON"){
+    if(e.target.id === "deleteScoreButton"){
 
         const config = {
-            method: "delete",
+            method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
                 Accept: "application/json",
             }
         }
+        fetch(`http://localhost:3000/scores/${e.target.parentNode.parentNode.id}`, config)
+        .then(function(){
+            console.log("Delete Successful");
+
+            // Deletes the LI from the DOM
+            e.target.parentNode.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode.parentNode);
+            alert("Score Deleted!");
+        })
+        .catch(error => alert(error) );
+
+    // Update Score UserName    
+    }else if (e.target.id === "updateNameButton"){
+        let newName = prompt("Please enter your name", `Undefined${e.target.id}`);
+
+        const config = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify("userName", newName),
+        }
 
         fetch(`http://localhost:3000/scores/${e.target.parentNode.parentNode.id}`, config)
-            .then(function(){
-                console.log("Delete Succesful");
+        .then(function(){
+            console.log("Update Successful");
 
-                // Deletes the LI from the DOM
-                e.target.parentNode.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode.parentNode);
-                alert("Score Deleted!");
-            })
-          .catch(error => alert(error) );
-   
-
+            // Deletes the LI from the DOM
+           
+            alert(`Score Name Updated to ${}!`);
+        })
+        .catch(error => alert(error) );
     }
 })
 

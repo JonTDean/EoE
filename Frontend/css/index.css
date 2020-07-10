@@ -250,15 +250,21 @@ div#mainDiv{
 
     div#deleteContainer{
         position: relative;
-        left: 750%;
-        top: 40%;
+        left: 500%;
+        top: 37%;
         justify-self: right;
+        /* padding: 5px; */
     }
 
     button#deleteScoreButton {
         grid-area: del;
         height: 3em;
+        margin-right: 1em;
+    }
 
+    button#updateNameButton{
+        /* margin: 5px; */
+        height: 3em;
     }
 
     .button {

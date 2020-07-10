@@ -95,7 +95,7 @@ class PlayGame extends Phaser.Scene {
         this.skeleton.setSize(65, 56, true);
         this.skeleton.setGravityY(100);
         // Skeleton Healthbar
-        this.skeleton.HPValue = 45000; // Base 45000
+        this.skeleton.HPValue = 47500; // Base 45000
         this.skeleton.HPText = this.add.text(0, 0, `Health: ${this.skeleton.HPValue}`, {fontSize: '26px', color: '#fff'});
 
         // Colliders
@@ -242,7 +242,7 @@ class PlayGame extends Phaser.Scene {
         // console.dir(this.myCam);
 
         // Timer Set for game over
-        this.timedEvent = 1; // Base: 60
+        this.timedEvent = 60; // Base: 60
         this.timedEventText = this.add.text(32, 32, `Countdown: ${this.timedEvent}`)
         // console.log(this.myCam)
 

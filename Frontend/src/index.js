@@ -143,7 +143,7 @@ scoreOl.addEventListener("click", function(e){
 
             // Deletes the LI from the DOM
            
-            alert(`Score Name Updated to ${}!`);
+            alert(`Score Name Updated to ${newName}!`);
         })
         .catch(error => alert(error) );
     }

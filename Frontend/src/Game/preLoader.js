@@ -1,4 +1,4 @@
-class preloadGame extends Phaser.Scene{
+class PreloadGame extends Phaser.Scene{
     constructor(){
         super("PreloadGame");
     }
@@ -76,7 +76,7 @@ class preloadGame extends Phaser.Scene{
         });
 
         // Player Get Hit Silhouette
-        this.load.spritesheet("playerHit","assets/warrior_sprites/Take_Hit_Silhouette.png",{
+        this.load.spritesheet("playerIsHit","assets/warrior_sprites/Take_Hit_Silhouette.png",{
             frameWidth:160,
             frameHeight:106
         });
@@ -102,7 +102,7 @@ class preloadGame extends Phaser.Scene{
         })
 
         // Attack 1
-        this.load.spritesheet("skeletonAttack1", "assets/Monsters_Creatures_Fantasy/Skeleton/Attack.png", {
+        this.load.spritesheet("skeletonAttack1", "assets/Monsters_Creatures_Fantasy/Skeleton/Attack1.png", {
             frameWidth:150,
             frameHeight:150
         })

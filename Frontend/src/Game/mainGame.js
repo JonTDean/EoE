@@ -24,7 +24,7 @@ window.onload = function(){
                 isPaused: false
             }
         },
-        scene: [preloadGame, playGame],
+        scene: [PreloadGame, PlayGame],
         parent: document.querySelector('div#mainDiv')// Appends Container to Canvas
     }
 

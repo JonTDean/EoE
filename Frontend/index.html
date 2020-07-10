@@ -15,13 +15,17 @@
 
   </head>
 
+  <!-- JS WON'T COMPLETE UNLESS SCORE FORM EXISTS WHY??? -->
+  <dummy id="scoreForm"></dummy>
+  
+  
   <body>
     <!-- Navbar Area -->
     <nav id="navHeader"> 
       <!-- Options for NavBar Area -->
       <ul class="ulNav">
         <!-- Whatever page the user is on should be highlighted -->
-        <li class="liNav" id="projectName"><a href="./index.html">Eat or be Eaten</a></li>
+        <li class="liNav" id="projectName"><a href="./index.html"> Sixty Seconds to Slay Some Skeleton </a></li>
       </ul>  
     </nav>
 
@@ -30,7 +34,7 @@
       
       <!-- Welcome Div -->
       <div id="welcomeDiv">
-        <p> Welcome to E.O.E., the current version is 0.0.1 </p>
+        <p> Welcome to S<sup>5</sup>, the current version is 0.0.9 </p>
       </div>
       
       <!-- Site Explanation -->
@@ -43,14 +47,8 @@
           <li> Parallax Logic Finished 07/08/2020 </li>
           <li> Physics Engine Created 07/08/2020 </li>
           <li> Enemy Logic Started 07/09/2020 </li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          <li> Enemy Logic Finished 07/09/2020 </li>
+          <li> CRUD Tie-Up 07/09/2020 </li>
         </ol>
       </div>
 
@@ -63,22 +61,13 @@
 
     <!--  Game Container -->
     <div id="scoreContainer">
-      <h2> Score Board</h2>
+      <h2 id="scoreH2"> Score Board</h2>
       <!-- Score Board -->
       <div id="scoreBoard">
         <ol id="scoreList">
-
+          <p id="noScores"> No one has played yet! :( </p>
         </ol>
       </div>
-
-      <!-- Score Submitter -->
-      <!-- <form id="scoreForm">
-        <label class="labelText" for="score">Score:</label>
-        <input class="inputText" id="score" type="text" name="score" placeholder="12345" />
-        <label class="labelText" for="">Name:</label>
-        <input class="inputText" id="name" type="text" name="name" placeholder="ABC" />
-        <input id="scoreButton" type="submit" value="submit" />
-      </form> -->
     </div>
 
     <!-- Footer Area-->

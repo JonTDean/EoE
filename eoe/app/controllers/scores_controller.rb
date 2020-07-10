@@ -8,6 +8,7 @@ class ScoresController < ApplicationController
 
     # GET /scores/1
     def show
+        @score = Score.find(params[:id])
         render json: @score
     end
 
@@ -20,6 +21,12 @@ class ScoresController < ApplicationController
         else
             render json: @score.errors, status: :unprocessable_entity
         end
+    end
+
+    # DELETE /scores/:id
+    def destroy
+        @score = Score.find(params[:id])
+        @score.destroy
     end
 
     private

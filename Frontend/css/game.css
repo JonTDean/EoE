@@ -21,6 +21,10 @@ a:hover{
     color: #A2A3BB;
 }
 
+.hidden{
+    display: none;
+}
+
 /* Nav Header Styles */
 nav#navHeader{
     color: aliceblue;

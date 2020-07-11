@@ -91,7 +91,7 @@ class PlayGame extends Phaser.Scene {
 
         // ENEMIES
         this.skeleton = this.physics.add.sprite(2200, 200, 'skeletonIdle');
-        this.skeleton.name = "Skeleton";
+        this.skeletonName = (this.skeleton.name = "Skeleking");
         this.skeleton.setSize(65, 56, true);
         this.skeleton.setGravityY(100);
         // Skeleton Healthbar
@@ -243,12 +243,15 @@ class PlayGame extends Phaser.Scene {
 
         // Timer Set for game over
         this.timedEvent = 60; // Base: 60
-        this.timedEventText = this.add.text(32, 32, `Countdown: ${this.timedEvent}`)
+        this.timedEventText = this.add.text(32, 32, `Countdown: ${this.timedEvent}`);
         // console.log(this.myCam)
 
         // Score for game points
         this.score = 0;
-        this.scoreText = this.add.text(64, 64, `Score: ${this.score}`)
+        this.scoreText = this.add.text(64, 64, `Score: ${this.score}`);
+
+        // Text for name
+        this.skeletonNameText = this.add.text(64, 64, `${this.skeletonName}`);
     }
 
     update() {
@@ -285,6 +288,9 @@ class PlayGame extends Phaser.Scene {
         // Skeleton Health
         this.skeleton.HPText.x = this.skeleton.x - 100;
         this.skeleton.HPText.y = this.skeleton.y - 100;
+            // Skeleton Name
+            this.skeletonNameText.x = this.skeleton.x - 50;
+            this.skeletonNameText.y = this.skeleton.y - 125;
 
         if(this.skeletonHit == true){
             this.skeleton.HPValue -= this.playerDamage;
@@ -613,6 +619,7 @@ class PlayGame extends Phaser.Scene {
             let inputScore = document.getElementById("score");
 
             this.sys.game.destroy(true);
+            alert("YOU LOST!");
             scoreForm.classList.remove("hidden");
             scoreDiv.classList.remove("hidden");
             // mainDiv.classList.add("hidden");
@@ -628,6 +635,7 @@ class PlayGame extends Phaser.Scene {
             let inputScore = document.getElementById("score");
 
             this.sys.game.destroy(true);
+            alert("YOU WON!!!");
             scoreForm.classList.remove("hidden");
             scoreDiv.classList.remove("hidden");
 

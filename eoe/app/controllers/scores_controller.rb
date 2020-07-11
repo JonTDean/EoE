@@ -29,6 +29,18 @@ class ScoresController < ApplicationController
         @score.destroy
     end
 
+    # PATCH /score/:id
+    def update
+        @score = Score.find(params[:id])
+
+        @score.update(score_params)
+        if @score.save
+          render json: @score, status: :accepted
+        else
+          render json: { errors: @score.errors.full_messages }, status: :unprocessible_entity
+        end
+      end
+
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

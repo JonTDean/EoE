@@ -126,7 +126,7 @@ scoreOl.addEventListener("click", function(e){
 
     // Update Score UserName    
     }else if (e.target.id === "updateNameButton"){
-        let newName = prompt("Please enter your name", `Undefined${e.target.id}`);
+        let newName = prompt("Please enter your name", `Undefined${e.target.parentNode.parentNode.id}`);
 
         const config = {
             method: "PATCH",
@@ -134,19 +134,22 @@ scoreOl.addEventListener("click", function(e){
                 "Content-Type": "application/json",
                 Accept: "application/json",
             },
-            body: JSON.stringify("userName", newName),
+            body: JSON.stringify({
+                userName: newName
+            })
         }
 
         fetch(`http://localhost:3000/scores/${e.target.parentNode.parentNode.id}`, config)
+        .then(resp => resp.json())
         .then(function(){
             console.log("Update Successful");
-
-            // Deletes the LI from the DOM
-           
             alert(`Score Name Updated to ${newName}!`);
         })
         .catch(error => alert(error) );
+
     }
+    
+    setTimeout(function(){ location.href = "./index.html"; }, 1000);
 })
 
 // Sorts Results Highest to Lowest

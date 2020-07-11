@@ -1,7 +1,6 @@
-# Eat Or Be Eaten
+# S
+You are the King of a Land faraway ruled by War. 
 
-## Links to use
+Outside of your gate is the greatest Skeleton to ever live, The Skeleking. 
 
-https://fonts.google.com/
-
-https://fonts.google.com/specimen/Sahitya?preview.text=Eat+or+be+Eaten&preview.text_type=custom&selection.family=Montserrat+Subrayada|Sahitya&sidebar.open#standard-styles
+You must slay him in 60 seconds or your kingdom will fall to him.
